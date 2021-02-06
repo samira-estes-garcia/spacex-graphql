@@ -1,11 +1,19 @@
 import React from 'react'
-import './App.css';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/client'
+import { LaunchesContainer } from './containers/LaunchesContainer';
 
 function App() {
+  const client = new ApolloClient({
+    uri: 'https://api.spacex.land/graphql/'
+  });
+
   return (
-    <div className="App">
-      <p>Hello World!</p>
-    </div>
+    <ApolloProvider client={client}>
+      <main>
+        <LaunchesContainer />
+      </main>
+    </ApolloProvider>
   );
 }
 
