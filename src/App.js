@@ -2,6 +2,7 @@ import React from 'react'
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/client'
 import { LaunchesContainer } from './containers/LaunchesContainer';
+import './App.css'
 
 function App() {
   const client = new ApolloClient({

@@ -5,6 +5,7 @@ query launchesPast($limit: Int!) {
     launchesPast(limit: $limit) {
       id
       mission_name
+      details
       launch_date_local
       launch_site {
         site_name_long
