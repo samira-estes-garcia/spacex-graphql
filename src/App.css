@@ -40,3 +40,8 @@
 .launch {
   border: 1px solid black;
 }
+
+.img,
+.alt-img {
+  width: 50%;
+}
