@@ -4,13 +4,13 @@ import { GET_LAUNCHES } from '../graphql/get-launches'
 import { Launch } from '../components/Launch';
 
 export const LaunchesContainer = () => {
-    const { data: { launchesPast = [] } = {} } = useQuery(GET_LAUNCHES, {
+    const { data: { launches = [] } = {} } = useQuery(GET_LAUNCHES, {
         variables: { limit: 10 },
     });
 
     return (
         <div className="launches_container">
-            {launchesPast && launchesPast.map(launchPast => <Launch key={launchPast.id} launchPast={launchPast} />)}
+            {launches && launches.map(launch => <Launch key={launch.id} launch={launch} />)}
         </div>
     )
 }
