@@ -16,22 +16,29 @@ export const Launch = ({launch}) => {
         let currentYear = new Date().getFullYear();
         if (currentYear > year) {
           let yearsAgo = currentYear - year
-          console.log(yearsAgo);
-          <p>{yearsAgo}</p>
+        //   console.log(yearsAgo);
+          return <p>Launched: {yearsAgo} years ago</p>
         } else {
           console.log("Hasn't happened yet")
         }
     }
 
-    // display first 3 flickr images if array not empty, if array is empty, display default spacex
+    // display random flickr image if flickr image array not empty
     let image;
+    let randomImage = launch.links.flickr_images[Math.floor(Math.random() * launch.links.flickr_images.length)]
     if  (launch.links.flickr_images.length > 0) {
-        image = launch.links.flickr_images
-        .slice(0,3)
-        .map(image => (<img className="img" key={`${launch.mission_name}-${image}`} src={image} alt="{launch.mission_name}" />))
+        image = <img className="img" key={`${launch.mission_name}-${randomImage}`} src={randomImage} alt={launch.mission_name} />;
     } else {
         image = <img className="alt-img" src={spacex} alt="Placeholder" />
     }
+
+    //reformat date to readable string
+    const date = (launch_date_local) => {
+        let date = new Date(launch_date_local);
+        let reformatDate = date.toDateString();
+        return <p>Launched: {reformatDate}</p>
+    }
+
 
     return (
         <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
@@ -40,13 +47,13 @@ export const Launch = ({launch}) => {
                     {image}
                 </div>
                 <div className="launch-name">
-                    <p>{launch.mission_name}</p>
+                    <h1>{launch.mission_name}</h1>
                 </div>
                 <div className="launch-site">
                     <p>{launch.launch_site.site_name_long}</p>
                 </div>
                 <div className="launch-year">
-                    <p>{yearsAgo(launch.launch_year)}</p>
+                    {yearsAgo(launch.launch_year)}
                 </div>
             </div>
 
@@ -54,8 +61,11 @@ export const Launch = ({launch}) => {
                 <div className="launch-details">
                     <p>{launch.details}</p>
                 </div>
-                <div className="links">
-                    <a href={launch.links.video_link}>{launch.links.video_link}</a>
+                <div className="launch-time">
+                    {date(launch.launch_date_local)}
+                </div>
+                <div className="launch-links">
+                    <a href={launch.links.video_link} target="_blank" className="youtube-link">Youtube Video</a>
                 </div>
             </div>
     </ReactCardFlip>

@@ -12,6 +12,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <main>
+        <h1 className="heading">SpaceX GraphQL App</h1>
         <LaunchesContainer />
       </main>
     </ApolloProvider>

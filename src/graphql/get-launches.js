@@ -4,6 +4,7 @@ export const GET_LAUNCHES = gql`
 query launchesPast($limit: Int!) {
   launches(limit: $limit) {
     id
+    launch_date_local
     launch_year
     mission_id
     mission_name
