@@ -24,13 +24,16 @@ export const Launch = ({launch}) => {
     }
 
     // display random flickr image if flickr image array not empty
-    let image;
-    let randomImage = launch.links.flickr_images[Math.floor(Math.random() * launch.links.flickr_images.length)]
-    if  (launch.links.flickr_images.length > 0) {
-        image = <img className="img" key={`${launch.mission_name}-${randomImage}`} src={randomImage} alt={launch.mission_name} />;
-    } else {
-        image = <img className="alt-img" src={spacex} alt="Placeholder" />
+    const getImage = (imgArr) => {
+        let randomImage = imgArr[Math.floor(Math.random() * imgArr.length)];
+        console.log(randomImage);
+        if (imgArr.length > 0) {
+            return <img className="img" key={`${imgArr[randomImage]}`} src={randomImage} alt={randomImage} />
+        } else {
+           return <img className="alt-img" src={spacex} alt="Placeholder" />
+        }
     }
+
 
     //reformat date to readable string
     const date = (launch_date_local) => {
@@ -44,7 +47,7 @@ export const Launch = ({launch}) => {
         <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
             <div className="launch front" onClick={handleClick}>
                 <div className="launch-img">
-                    {image}
+                    {getImage(launch.links.flickr_images)}
                 </div>
                 <div className="launch-name">
                     <h1>{launch.mission_name}</h1>
