@@ -65,7 +65,7 @@ export const Launch = ({launch}) => {
                     {date(launch.launch_date_local)}
                 </div>
                 <div className="launch-links">
-                    <a href={launch.links.video_link} target="_blank" className="youtube-link">Youtube Video</a>
+                    <a href={launch.links.video_link} target="_blank" rel="noopener noreferrer" className="youtube-link">Youtube Video</a>
                 </div>
             </div>
     </ReactCardFlip>
