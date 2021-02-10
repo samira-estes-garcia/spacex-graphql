@@ -1,6 +1,6 @@
 # A React App with SpaceX's GraphQL API
 
-This application uses the SpaceX GraphQL API to display SpaceX's previous rocket launches. Click on a card to view more information about a particular launch.
+This application uses the SpaceX GraphQL API to display SpaceX's previous rocket launches. Click on a card to view more information about a particular launch. Live Link: https://samira-estes-garcia.github.io/spacex-graphql/
 
 ## Installation
 
