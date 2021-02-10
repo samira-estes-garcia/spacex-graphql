@@ -41,7 +41,7 @@ describe('<LaunchesContainer />', () => {
     //.launches_container exists
     it('it renders .launches_container', () => {
         const wrapper = mount(<MockedProvider><LaunchesContainer /></MockedProvider>)
-        console.log(wrapper.debug());
+        //console.log(wrapper.debug());
         expect(wrapper.find('.launches_container').exists()).toBe(true);
     });
 
@@ -51,7 +51,7 @@ describe('<LaunchesContainer />', () => {
     //was able to make sure <Launch /> is rendering, but can't see it in the console
     it('it renders launch components', async () => {
         let wrapper = mount(<MockedProvider><LaunchesContainer addTypename={false} mocks={mockLaunch} /></MockedProvider>)
-        console.log(wrapper.debug());
+        //console.log(wrapper.debug());
         expect(wrapper.find(Launch)).toBeTruthy();
     });
 });

@@ -26,7 +26,7 @@ export const Launch = ({launch}) => {
     // display random flickr image if flickr image array not empty
     const getImage = (imgArr) => {
         let randomImage = imgArr[Math.floor(Math.random() * imgArr.length)];
-        console.log(randomImage);
+        //console.log(randomImage);
         if (imgArr.length > 0) {
             return <img className="img" key={`${imgArr[randomImage]}`} src={randomImage} alt={randomImage} />
         } else {

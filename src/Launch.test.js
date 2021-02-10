@@ -6,12 +6,30 @@ import { Launch } from './components/Launch.js';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('Launch data', () => {
-    it('should mount', () => {
-        const wrapper = shallow(<Launch launch={mockLaunch} />);
-        console.log(wrapper.debug());
-        expect(wrapper).toBeTruthy();
+describe('<Launch />', () => {
+    let wrapper; 
+
+    beforeEach(() => {
+        wrapper = mount(<Launch launch={mockLaunch} />);
     });
+
+    it('renders', () => {
+        console.log(wrapper.debug());
+        expect(wrapper).not.toBeNull();
+    })
+
+    //test the output of the function vs the function itself
+    
+    //test yearsAgo()
+    it('should calculate launched years ago', () => {
+        expect(wrapper.find('.launch-year').text()).toEqual('Launched: 7 years ago');
+    })
+    
+    //renders date correctly
+    it('it shows the date in a readable string', () => {
+        expect(wrapper.find('.launch-time').text()).toEqual("Launched: Mon Jan 06 2014")
+    })
+
 });
 
 const mockLaunch = {
