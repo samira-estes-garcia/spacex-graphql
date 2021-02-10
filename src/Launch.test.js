@@ -14,7 +14,7 @@ describe('<Launch />', () => {
     });
 
     it('renders', () => {
-        console.log(wrapper.debug());
+        //console.log(wrapper.debug());
         expect(wrapper).not.toBeNull();
     })
 

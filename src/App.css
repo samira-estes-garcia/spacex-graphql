@@ -77,10 +77,19 @@ body {
 }
 
 /* media queries */
+@media (max-width: 1200px) {
+  .back {
+    width: 90%;
+  }
+}
+
 @media (max-width: 950px) {
   .img,
   .alt-img {
     height: 350px;
+  }
+  .back {
+    height: 545px;
   }
 }
 
@@ -91,6 +100,9 @@ body {
   .img,
   .alt-img {
     height: 250px;
+  }
+  .back {
+    height: 545px;
   }
 }
 
@@ -105,5 +117,8 @@ body {
   .img,
   .alt-img {
     height: 400px;
+  }
+  .back {
+    height: 600px;
   }
 }
