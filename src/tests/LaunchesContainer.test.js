@@ -1,10 +1,10 @@
 import React from 'react';
-import Enzyme, { shallow, mount, ReactWrapper } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 //import Adapter from 'enzyme-adapter-react-16'; mount doesn't work with this version + react 17
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { LaunchesContainer } from './containers/LaunchesContainer';
+import { LaunchesContainer } from '../containers/LaunchesContainer';
 import { MockedProvider } from "@apollo/react-testing";
-import { Launch } from './components/Launch.js';
+import { Launch } from '../components/Launch.js';
 
 Enzyme.configure({ adapter: new Adapter() });
 
